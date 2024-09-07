@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOT HUNTER AVIATOR</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #ffffff;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      font-weight: bold;
+      color: #ddd;
+    }
+
+    .country-img {
+      width: 150px;
+      margin: 20px 0;
+      cursor: pointer;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .country-img:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.3);
+    }
+
+    .price-info {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .buy-button {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      background: #ff9500;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .buy-button:hover {
+      background: #e07b00;
+      transform: scale(1.05);
+    }
+
+    #pa {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+      width: 150px;
+    }
+
+    #dialogOverlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 999;
+    }
+
+    #dialog {
+      display: none;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: #2c3e50;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      padding: 30px;
+      z-index: 1000;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .dialog-header {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: #ecf0f1;
+    }
+
+    .dialog-body {
+      font-size: 1.2rem;
+      color: #bdc3c7;
+      margin-bottom: 20px;
+    }
+
+    .dialog-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .dialog-button {
+      padding: 10px 20px;
+      background: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      flex: 1;
+    }
+
+    .dialog-button:hover {
+      background: #2980b9;
+    }
+
+    #shareBtn {
+      background: #25d366;
+    }
+
+    #shareBtn:hover {
+      background: #1da851;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>SEJA BEM VINDO AO BOT MILIONÁRIO</h1>
+  <h2>ESCOLHA O SEU PAÍS PARA JOGAR AVIATOR COM O BOT MILIONÁRIO</h2>
+
+  <div id="pa">
+    <img class="country-img" id="moz" onclick="moz()" src="moz.jpeg" alt="BOT HUNTER MOZ">
+    <h4 style="color: white">BOT MILIONÁRIO MOZ</h4>
+  </div>
+  
+<button onclick="reg()" class="buy-button">VER COMO SE REGISTRAR</button>
+
+  <div id="dialogOverlay"></div>
+  <div id="dialog">
+    <div class="dialog-header">MÉTODO DE USO</div>
+    <div class="dialog-body">
+      1° Compartilhe o bot em 5 grupos diferentes.<br>
+      2° Crie uma nova conta.<br>
+      3° Faça depósito no mínimo 100MT.
+      <p style="font-weight: bold; ">Atenção: o não cumprimento do método de uso pode resultar no erro dos sinais fornecidos pelo bot</p>
+    </div>
+    <div class="dialog-footer">
+      <button class="dialog-button" id="shareBtn">Compartilhar no WhatsApp</button>
+      <button class="dialog-button" id="okBtn">JÁ PARTILHEI</button>
+    </div>
+  </div>
+
+  <script>
+    const veri = "esa"; // Aqui deve estar a lógica correta para a verificação
+
+    if (veri !== "esta") {
+      window.addEventListener('load', function () {
+        document.getElementById('dialog').style.display = 'block';
+        document.getElementById('dialogOverlay').style.display = 'block';
+      });
+    }
+
+    document.getElementById('okBtn').addEventListener('click', function () {
+      document.getElementById('dialog').style.display = 'none';
+      document.getElementById('dialogOverlay').style.display = 'none';
+    });
+
+    document.getElementById('dialogOverlay').addEventListener('click', function () {
+      document.getElementById('dialog').style.display = 'none';
+      document.getElementById('dialogOverlay').style.display = 'none';
+    });
+
+    document.getElementById('shareBtn').addEventListener('click', function () {
+      const message = encodeURIComponent("registe-se já nas casas de apostas, usando o bot milionário web o melhor bot aviator 100% acertivo: https://bothunterweb.vercel.app/");
+      const whatsappUrl = `https://wa.me/?text=${message}`;
+      window.open(whatsappUrl, '_blank');
+    });
+
+    function moz() {
+      window.location.href = "escolha.html";
+    }
+
+    function ango() {
+      window.location.href = "ango.html";
+    }
+
+    
+    function reg() {
+      window.location.href = "aula.html"
+    }
+    
+  </script>
+
+</body>
+
+</html>
